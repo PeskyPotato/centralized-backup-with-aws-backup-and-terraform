@@ -302,6 +302,7 @@ resource "aws_lambda_function" "s3_policy_mapper" {
   runtime       = var.lambda_runtime
   memory_size   = var.memory_size
   tags          = var.tags
+  kms_key_arn   = aws_kms_key.backup_automation_key.arn
 
   # set environmental variable defaults for the function
   environment {
@@ -323,6 +324,7 @@ resource "aws_lambda_function" "org_policy_manager" {
   runtime       = var.lambda_runtime
   memory_size   = var.memory_size
   tags          = var.tags
+  kms_key_arn   = aws_kms_key.backup_automation_key.arn
 
   # set environmental variable defaults for the function
   environment {
